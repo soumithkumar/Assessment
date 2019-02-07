@@ -1,0 +1,41 @@
+<html>
+<script>
+function onCountWords(){
+
+var sentense = document.getElementById("sentenceEle").value;
+var sentenseArr = sentense.split(" ");
+var countObj = {};
+sentenseArr.forEach(function(word){
+    if(countObj[word]){
+	countObj[word] = countObj[word]+1;
+	}
+	else{
+	  countObj[word] = 1;
+	}
+})
+
+
+document.getElementById("result").innerText= JSON.stringify(countObj);
+
+
+
+}
+
+</script>
+<body>
+
+<div><span style="font-weight:bold;">Sentense:</span> <textarea id="sentenceEle" rows="6" cols="50">
+Walmart Technology is reinventing the way the world shops and we’ve only just begun. Our team includes @Walmart Labs in Silicon
+Valley and Bengaluru, which powers the eCommerce experience, as well as technology teams across data and analytics, retail, back office and more who
+help power store and digital experiences.
+</textarea></div>
+
+<div>Result is </div>
+<div id="result"></div>
+
+<div> <button onclick="onCountWords()">Count Words</button></div>
+
+</body>
+
+
+</html>
